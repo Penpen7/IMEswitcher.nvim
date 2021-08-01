@@ -1,3 +1,7 @@
-all: test.go
-	go build -o rplugins/test src/test.go
+all:
+	cd src && \
+	go get -d && \
+	go build -o ../switcher/switcher switcher.go
+clean:
+	rm -rf switcher
 	
