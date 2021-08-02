@@ -24,13 +24,14 @@ int switchToInputSource(char const *name) {
 import "C"
 import "github.com/neovim/go-client/nvim/plugin"
 
-func IMESwitch(args []string) error {
+func hello(args []string) error {
+	C.switchToInputSource(C.CString("com.apple.keylayout.ABC"))
 	return nil
 }
 
 func main() {
 	plugin.Main(func(p *plugin.Plugin) error {
-		p.HandleFunction(&plugin.FunctionOptions{Name: "IMESwitch"}, IMESwitch)
+		p.HandleFunction(&plugin.FunctionOptions{Name: "Hello"}, hello)
 		return nil
 	})
 }
